@@ -93,9 +93,18 @@ Basin, or add a small serverless function; the field names are `name`, `phone`, 
 
 ## Deploying
 
-The site is fully static. Push the repository and enable GitHub Pages, or drag the folder
-into Netlify/Vercel. For GitHub Pages, update `BASE` in `build.py`, run the build, commit,
-then publish the repository root.
+The site is fully static and GitHub Pages is already enabled for this repository —
+`main` at `/` publishes automatically on every push to **https://waleedinfo077-sudo.github.io/Dr-zahra-demo-website-/**.
+
+Canonical URLs, Open Graph tags and the sitemap are built from `BASE` in `build.py`,
+which defaults to that Pages URL. For a custom domain (or Netlify/Vercel), rebuild with:
+
+```bash
+SITE_BASE="https://your-domain.com" python3 build.py
+```
+
+Then commit the regenerated HTML. Any host that serves static files will work — no
+server-side code is required.
 
 ## Credits
 

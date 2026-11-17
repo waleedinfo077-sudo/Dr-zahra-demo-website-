@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://solaceaesthetics.pk/sitemap.xml
+Sitemap: https://waleedinfo077-sudo.github.io/Dr-zahra-demo-website-/sitemap.xml

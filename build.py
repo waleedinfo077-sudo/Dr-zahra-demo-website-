@@ -9,12 +9,17 @@ Run:  python3 build.py
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-BASE = "https://solaceaesthetics.pk"
+# Public URL of the site. Override with SITE_BASE for a custom domain, e.g.
+#   SITE_BASE="https://solaceaesthetics.pk" python3 build.py
+BASE = os.environ.get(
+    "SITE_BASE", "https://waleedinfo077-sudo.github.io/Dr-zahra-demo-website-"
+).rstrip("/")
 YEAR = date.today().year
 
 NAV = [
@@ -1226,6 +1231,7 @@ def main() -> None:
         name = "index.html" if slug == "index" else f"{slug}.html"
         (ROOT / name).write_text(render(slug, spec), encoding="utf-8")
         print(f"  ✓ {name}")
+    (ROOT / ".nojekyll").write_text("", encoding="utf-8")
     (ROOT / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     (ROOT / "sitemap.xml").write_text(SITEMAP, encoding="utf-8")
     (ROOT / "robots.txt").write_text(ROBOTS, encoding="utf-8")
